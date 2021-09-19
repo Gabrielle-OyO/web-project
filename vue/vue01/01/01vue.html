@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01vue</title>
+
+    <!--引入Vue-->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+    <!--
+        vue:
+        ①准备vue容器root
+        ②调用容器vue
+        ③套模板
+        ④容器-实例--一对一 
+    -->
+
+    <!--准备容器-->
+    <div id="root">
+        <h1>Hello.{{name}},{{address}},{{num}}</h1>
+    </div>
+
+
+    <!--vue环境配置-->
+    <script type="text/javascript">
+    Vue.config.productionTip=false// 以阻止 vue 在启动时生成生产提示。
+
+    //创建vue实例
+    const vm=new Vue({   //配置对象
+        el:'#root',  //css的id选择器
+        //用于指定当前vue实例为哪个容器服务，值通常为css选择器字符
+        data:{//data中，用于存储数据，数据供el所指定容器使用
+            name:"zyyyyy",
+            address:"hangzhou",
+            num:1234567
+        }
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板语法</title>
+
+    <!--
+        ①插值语法：{{xxx}} 读取data中对应xxx的值
+        ②指令语法：v-bind：可以用 “：”代替
+    -->
+
+    <!--
+        大写：url.toUpperCase()
+        时间戳：Date.now()
+
+    -->
+
+
+
+
+
+    <!--引入Vue-->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+    <!--准备容器-->
+    <div id="root">
+        <h1>插值语法</h1>
+        <h3>您好，{{name}}</h3>
+        <hr/>
+        <h1>指令语法</h1>
+        <a v-bind:href="where.url" x="hello">1 - 点我去{{where.name}}</a>
+        <br/>
+        <a :href="where.url" x="hello">2 - 点我去{{where.name}}</a>
+    </div>
+
+
+    <!--vue环境配置-->
+    <script type="text/javascript">
+    Vue.config.productionTip=false
+    
+    //创建vue实例
+    const vm=new Vue({   
+        el:'#root', 
+        data:{
+            name:"Gabrielle",
+            where:{
+                name:"GitHub",
+                url:"https://github.com/Gabrielle-OyO"
+            }
+        }
+    })
+    </script>
+</body>
+</html>
