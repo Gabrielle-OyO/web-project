@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>temp</title>
+    <title>03</title>
+
+
+<!--
+    data中的初始数据保存在了vm里的“_data"里了
+    _data进行了数据劫持
+    目的是vue为了实时监测data里的数据变化
+-->
 
     <!--引入vue-->
-    <script type="text/javascript" src="./js/vue.js"></script>
+    <script type="text/javascript" src="../js/vue.js"></script>
 
 </head>
 <body>
 
     <!--准备容器-->
     <div id="root">
-        <h1>name:{{name}}</h1>
+        <h2>name:{{_data.name}}</h2>
+        <h2>name:{{name}}</h2>
+        <h2>address:{{address}}</h2>
     </div>
 </body>
 
@@ -25,6 +34,7 @@
         el:"#root",
         data:{
             name:"Gabrielle",
+            address:"HangZhou"
         }
     })
 
