@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+
+    <!--引入vue-->
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+<body>
+
+    <!--准备容器-->
+    <div id="root">
+        <h1>name:{{name}}</h1>
+        <div id="root">
+            姓：<input type="text" v-model="firstName">
+            名：<input type="text" v-model="lastName">
+            全名：<span>{{firstName.slice(0,10)}}-{{lastName}}</span>
+            <!-- 截取部分字符：0-10个
+                {{firstName.slice(0,10)}} 
+            -->
+            <hr>
+            全名：<span>{{fullName()}}</span>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    Vue.config.productionTip=false
+
+    const vm=new Vue({
+        el:"#root",
+        data:{
+            name:"Gabrielle",
+            firstName:"Russel",
+            lastName:"Gabrielle"
+        },
+        methods:{
+            fullName(){
+                console.log('@----fullName')
+                return this.firstName + '-'+ this.lastName
+            }
+        }
+    })
+
+    </script>
+</html>

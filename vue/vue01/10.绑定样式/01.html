@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+    
+    <style>
+        .basic{
+            width:400px;
+            height:100px;
+            border:1px solid black;
+        }
+        .happy{
+            background-color: pink;
+        }
+        .sad{
+            background-color: powderblue;
+        }
+        .normal{
+            background-color:sandybrown;
+        }
+    </style>
+
+
+
+
+    <!--引入vue-->
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+<body>
+
+    <!--准备容器-->
+    <div id="root">
+        <!-- 绑定class央视--字符串写法，
+             适用于:样式类名不确定 需要动态指定 -->
+        <div class="basic" :class="mood" @click="changeMood">{{name}}</div>
+        <br>
+        <!-- 绑定class央视--字符串写法，
+             适用于:样式类名、数量不确定  -->
+        <div class="basic" :class="classArr">{{name}}</div>
+        <br>
+        <!-- 绑定class央视--字符串写法，
+             适用于:样式类名、数量确定 但需要动态指定 -->
+        <div class="basic" :class="classObj">{{name}}</div>
+        <br>
+        <div class="basic" :style="styleObj">{{name}}</div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    Vue.config.productionTip=false
+
+    new Vue({
+        el:'#root',
+        data:{
+            name:"Gabrielle",
+            mood:'normal',
+            classArr:['normal','happy','sad'],//可随时添加元素
+            classObj:{
+                normal:false,
+                happy:false,
+                sad:false,
+            },
+            styleObj:{
+            fontSize:'40px'
+        }
+        },
+        methods:{
+            changeMood(){
+                const arr=['happy','sad','normal']
+                const index=Math.floor(Math.random()*3)
+                this.mood=arr[index]
+                console.log(this)
+                console.log(index)
+            }
+        },
+
+    })
+
+    </script>
+</html>
