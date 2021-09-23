@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temp</title>
+
+    <!--引入vue-->
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+<body>
+
+    <!--准备容器-->
+    <div id="root">
+        <h1>name:{{name}}</h1>
+        <h1>address:{{address}}</h1>
+        <hr>
+        <h1>sname:{{student.sname}}</h1>
+        <h1>age:真实：{{student.age.rAge}}</h1>
+        <h1>age:对外：{{student.age.sAge}}</h1>
+        <h2>朋友们</h2>
+        <ul>
+            <li v-for="(f,index) in student.friends" :key="index">
+                {{f.name}}--{{f.age}}
+            </li>
+        </ul>
+    </div>
+</body>
+
+<script type="text/javascript">
+    Vue.config.productionTip=false
+
+    const vm=new Vue({
+        el:"#root",
+        data:{
+            name:'ZUJ',
+            address:"HangZhou",
+            student:{
+                sname:"Gabrielle",
+                age:{
+                    rAge:20,
+                    sAge:30,
+                },
+                friends:[
+                    {name:"jerry",age:35},
+                    {name:"bob",age:85},
+                    {name:"henry",age:45}
+                ]
+            }
+        }
+        
+    })
+
+    </script>
+</html>
